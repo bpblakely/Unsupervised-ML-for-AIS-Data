@@ -12,8 +12,11 @@ from matplotlib import markers,colors
 
 def convertTimeToSec(timeVec):
     # Convert time from hh:mm:ss string to number of seconds
+    # Handle both bytes and string inputs for numpy compatibility
+    if isinstance(timeVec, bytes):
+        timeVec = timeVec.decode('utf-8')
     return sum([a * b for a, b in zip(
-            map(int, timeVec.decode('utf-8').split(':')), [3600, 60, 1])])
+            map(int, timeVec.split(':')), [3600, 60, 1])])
 
 def loadData(filename):
     # Load data from CSV file into numPy array, converting times to seconds

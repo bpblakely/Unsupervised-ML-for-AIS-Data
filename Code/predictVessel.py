@@ -32,7 +32,7 @@ def predictWithoutK(testFeatures, trainFeatures=None, trainLabels=None):
 # Run this code only if being used as a script, not being imported
 if __name__ == "__main__":
     from utils import loadData, plotVesselTracks
-    data = loadData('set1.csv')
+    data = loadData('Data/set1.csv')
     features = data[:,2:]
     labels = data[:,1]
 
